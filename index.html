@@ -50,7 +50,7 @@
             color: var(--primary-red);
             text-shadow: 0 0 20px var(--primary-red);
             animation: pulse 2s infinite;
-        
+        }
         @keyframes pulse {
             0%, 100% { text-shadow: 0 0 20px var(--primary-red); }
             50% { text-shadow: 0 0 30px var(--primary-red); }
@@ -101,7 +101,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: glow 3s infinite alternate;
-            invalid-property: value;
+            /* invalid-property: value; */
         }
         @keyframes glow {
             from { filter: drop-shadow(0 0 20px var(--primary-red)); }
@@ -133,7 +133,7 @@
         }
         .cta-button:hover, .submit-btn:hover {
             transform: translateY(-5px) scale(1.05);
-            box-shadow 0 10px 30px rgba(255, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.5);
         }
         .section {
             padding: 100px 2rem;
@@ -221,8 +221,9 @@
         }
         .greeting {
             position: fixed;
-            top: 50%;
+            top: 20%;
             left: 50%;
+            /* padding: 100px; */
             transform: translate(-50%, -50%);
             background: linear-gradient(45deg, var(--primary-red), var(--golden));
             color: var(--white);
@@ -238,7 +239,7 @@
             0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
             50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
             100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        
+        }
         .map-container {
             background: rgba(139, 69, 19, 0.2);
             border: 3px solid var(--golden);
@@ -317,7 +318,7 @@
         }
         .treasure-image {
             width: 300px;
-            height: 200px;
+            /* height: 200px; */
             object-fit: cover;
             border-radius: 15px;
             border: 3px solid var(--golden);
@@ -359,7 +360,7 @@
         <div style="font-size: 2rem;">🏴‍☠️</div>
         <div>Welcome, Treasure Hunter!</div>
         <div style="font-size: 1rem; opacity: 0.9;">Your adventure awaits...</div>
-    
+    </div>
     <nav>
         <div class="logo">FINAL DESTINATION</div>
         <ol class="nav-links">
@@ -385,8 +386,8 @@
             <h2 class="section-title">Interactive Treasure Map</h2>
             <p style="text-align: center; font-size: 1.2rem; color: var(--golden);">Click on locations to discover hidden treasures!</p>
             <div class="treasure-showcase">
-                <img src="ancient.jpg" alt="Ancient Treasure Chest" class="treasure-image">
-                <img src="pirate.jpg" alt="Pirate Gold" class="treasure-image">
+                <img src="./Images/ancient.jpg" alt="Ancient Treasure Chest" class="treasure-image">
+                <img src="./Images/pirate.jpg" alt="Pirate Gold" class="treasure-image">
             </div>
             <div class="map-container">
                 <div class="grid">
@@ -414,7 +415,7 @@
                         <span style="font-size: 3rem;">🌙</span>
                         <h4>Shadow Valley</h4>
                         <p>Dark ravine</p>
-                    
+                    </div>
                     <div class="card map-location" data-treasure="Mermaid's Pearl">
                         <span style="font-size: 3rem;">🐚</span>
                         <h4>Coral Reef</h4>
@@ -562,11 +563,11 @@
                 });
             });
             
-            document.querySelector('.contact-form').addEventListener('submit', e => {
+            document.querySelector('.contact-form').addEventListener('submit', (e) => {
                 e.preventDefault();
                 showMessage('Welcome to the Hunt!', 'Your treasure hunting adventure begins now...');
                 e.target.reset();
-            };
+            });
             
             document.querySelectorAll('.map-location').forEach(location => {
                 location.addEventListener('click', () => {
@@ -593,8 +594,7 @@
                 });
             });
         });
-        
-        
+    </script>
     
 </body>
 </html>
