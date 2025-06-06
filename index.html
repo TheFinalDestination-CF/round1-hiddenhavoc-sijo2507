@@ -183,7 +183,7 @@
         .treasure-map { 
             background: linear-gradient(45deg, var(--dark-gray), var(--black));
         }
-        leaderboard { 
+        .section-leaderboard { 
             background: var(--dark-red);
         }
         .contact-form {
@@ -221,9 +221,8 @@
         }
         .greeting {
             position: fixed;
-            top: 20%;
+            top: 50%;
             left: 50%;
-            /* padding: 100px; */
             transform: translate(-50%, -50%);
             background: linear-gradient(45deg, var(--primary-red), var(--golden));
             color: var(--white);
@@ -318,7 +317,7 @@
         }
         .treasure-image {
             width: 300px;
-            /* height: 200px; */
+            height: 200px;
             object-fit: cover;
             border-radius: 15px;
             border: 3px solid var(--golden);
@@ -425,7 +424,7 @@
             </div>
         </div>
     </section>
-    <section class="section leaderboard">
+    <section class="section-leaderboard">
         <div class="container">
             <h2 class="section-title">Treasure Hunter Leaderboard</h2>
             <div class="leaderboard-table">
@@ -495,7 +494,7 @@
         const treasureCounter = document.getElementById('counterNumber');
         
         let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
-        let treasuresFound = undefinedVariable; 
+        let treasuresFound = 0; 
         
         document.addEventListener('mousemove', e => {
             mouseX = e.clientX;
@@ -554,7 +553,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             createFloatingElements();
             animateCursor();
-            setTimeout(() => wrongElement.style.display = 'none', 4000); 
+            setTimeout(() => greeting.style.display = 'none', 4000); 
             
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', e => {
@@ -573,7 +572,7 @@
                 location.addEventListener('click', () => {
                     if (!location.classList.contains('discovered')) {
                         location.classList.add('discovered');
-                        treasuresFound--; 
+                        treasuresFound++; 
                         treasureCounter.textContent = treasuresFound;
                         createSparkles(location);
                     }
@@ -590,7 +589,7 @@
                     `;
                     row.style.position = 'relative';
                     row.appendChild(coin);
-                    setTimeout(() => coin.destroy(), 500);
+                    setTimeout(() => coin.remove(), 500);
                 });
             });
         });
